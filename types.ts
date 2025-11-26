@@ -30,6 +30,14 @@ export interface Question {
   text: string;
   options: string[];
   correctOption: number;
+  note?: string;
+  subject?: string;
+}
+
+export interface Flashcard {
+  id: number;
+  question: string;
+  answer: string;
 }
 
 export type ViewState = 'home' | 'subjects' | 'scholarships' | 'performance' | 'profile' | 'cbt';
