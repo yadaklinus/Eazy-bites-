@@ -5,6 +5,9 @@ export interface Scholarship {
   subtitle: string;
   deadline?: string;
   iconType: 'grad' | 'globe';
+  country?: string;
+  amount?: string;
+  url?: string;
 }
 
 export interface NavItem {
