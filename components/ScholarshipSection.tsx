@@ -47,7 +47,7 @@ const allScholarships: Scholarship[] = [
   },
   { 
     id: '5', 
-    title: 'MTN Foundation', 
+    title: 'MTN Foundation Scheme', 
     subtitle: 'Science & Tech', 
     country: 'Nigeria', 
     amount: '₦200k', 

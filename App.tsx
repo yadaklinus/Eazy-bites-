@@ -9,9 +9,15 @@ import { ProfileView } from './components/ProfileView';
 import { PerformanceView } from './components/PerformanceView';
 import { CBTView } from './components/CBTView';
 import { SubjectsView } from './components/SubjectsView';
+import { OnboardingView } from './components/OnboardingView';
+import { LoginView } from './components/LoginView';
 import { ViewState } from './types';
 
+// Define authentication stages
+type AuthStage = 'onboarding' | 'login' | 'authenticated';
+
 const App: React.FC = () => {
+  const [authStage, setAuthStage] = useState<AuthStage>('onboarding');
   const [currentView, setCurrentView] = useState<ViewState>('home');
 
   // Helper to render main content based on state
@@ -35,6 +41,17 @@ const App: React.FC = () => {
     }
   };
 
+  // 1. Show Onboarding
+  if (authStage === 'onboarding') {
+    return <OnboardingView onComplete={() => setAuthStage('login')} />;
+  }
+
+  // 2. Show Login
+  if (authStage === 'login') {
+    return <LoginView onLogin={() => setAuthStage('authenticated')} />;
+  }
+
+  // 3. Main App (Dashboard)
   return (
     <div className="min-h-screen w-full relative pb-28 selection:bg-green-200">
       {/* CBT Mode Overlay (Full Screen) */}
